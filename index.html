@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<style>
+	body {
+    font-family: Arial, sans-serif;
+    background-image: url("IMG_20260122_202500.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	}
+
+	.card {
+		background-image: url("IMG_20260122_202500.jpg");
+		background-size: cover;
+	    background-repeat: no-repeat;
+	    width: 350px;
+	    padding: 25px;
+	    border-radius: 15px;
+	    border: 2px solid black;
+	    box-shadow: 0 9px 15px rgba(0,0,0,0.9);
+	}
+
+	h3 {
+	    text-align: center;
+	    margin-bottom: 30px;
+	    font-size: 30px;
+	    color: gray;
+	}
+
+	.form-group {
+		margin-bottom: 20px;
+		width: 100%;
+	}
+
+	label {
+	    font-size: 14px;
+	    font-weight: bold;
+	    color: black;
+	}
+
+	input[type="text"],
+	input[type="password"] {
+	    width: 100%;
+	    padding: 10px;
+	    margin-top: 6px;
+	    border: 1px solid black;
+	    border-radius: 6px;
+	    font-size: 15px;
+	    box-sizing: border-box;
+	}
+
+	button {
+	    width: 100%;
+	    padding: 12px;
+	    border: none;
+	    background: #0d6efd;
+	    color: white;
+	    border-radius: 6px;
+	    font-size: 16px;
+	    cursor: pointer;
+	    transition: 0.9s ease;
+	}
+
+	button:hover {
+	    background: white;
+	    color: #0d6efd;
+	}
+
+	button:active {
+		background: #0d6efd;
+		color: black;
+	}
+
+	a {
+		text-decoration: none;
+	}
+</style>
+<body>
+    <div class="card">
+        <h3>Login Page</h3>
+
+        <form id="loginForm">
+
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter your password" required>
+            </div>
+            
+            <button type="submit" style="margin-bottom: 10px;">Login</button>
+
+            <!-- <button>Register</button> -->
+        </form>
+    </div>
+
+    <script>
+        if
+(localStorage.getItem("isLoggedIn") === "true") {
+        const lastPage = localStorage.getItem("lastPage");
+
+        if (lastPage) {
+            window.location.href = lastPage;
+        }
+    }
+     document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let username = document.querySelector("input[name='username']").value;
+            let password = document.querySelector("input[name='password']").value;
+
+            if (username === "admin" && password === "admin") { localStorage.setItem("isLoggedIn", "true");
+            window.location.href = "places.html";
+            } else{
+                alert("Invalid username or password");
+            }
+         }); 
+    </script>
+</body>
+</html>
